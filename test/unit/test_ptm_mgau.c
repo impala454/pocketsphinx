@@ -103,6 +103,7 @@ main(int argc, char *argv[])
 	cmd_ln_set_str_extra_r(config, "_lda", NULL);
 	cmd_ln_set_str_extra_r(config, "_senmgau", NULL);	
 	
+	err_set_log_level("WARN");
 	TEST_ASSERT(config);
 	TEST_ASSERT((acmod = acmod_init(config, lmath, NULL, NULL)));
 	TEST_ASSERT((ps = acmod->mgau));

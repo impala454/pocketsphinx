@@ -63,7 +63,11 @@
             ARG_STRING,                                 \
             NULL,                                       \
             "File to write log messages in" },          \
-     { "-mfclogdir",                                    \
+    { "-loglevel",                                      \
+            ARG_STRING,                                 \
+            "INFO",                                     \
+        "Verbosity level for log messages" },           \
+    { "-mfclogdir",                                     \
              ARG_STRING,                                \
              NULL,                                      \
              "Directory to log feature files to"        \

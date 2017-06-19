@@ -154,7 +154,8 @@ ps_expand_model_config(ps_decoder_t *ps)
 
     /* Print here because acmod_init might load feat.params file */
     if (err_get_logfp() != NULL) {
-	cmd_ln_print_values_r(ps->config, err_get_logfp(), ps_args());
+        if (err_get_log_level() <= ERR_INFO)
+	       cmd_ln_print_values_r(ps->config, err_get_logfp(), ps_args());
     }
 }
 
@@ -225,6 +226,8 @@ ps_reinit(ps_decoder_t *ps, cmd_ln_t *config)
         cmd_ln_free_r(ps->config);
         ps->config = cmd_ln_retain(config);
     }
+
+    err_set_log_level(cmd_ln_str_r(config, "-loglevel"));
 
     /* Set up logging. We need to do this earlier because we want to dump
      * the information to the configured log, not to the stderr. */
